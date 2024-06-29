@@ -14,10 +14,6 @@ const Tasks = () => {
         }
     }, []);
 
-    const toggleFinished =()=>{
-        setShowFinished(!showFinished);
-    }
-
     const saveToLocalStorage =()=>{
         localStorage.setItem("data", JSON.stringify(data));
     }
@@ -64,7 +60,11 @@ const Tasks = () => {
     <>
         <div className='container flex my-4 mx-auto w-3/4'>
         <input onChange={handleChange} value={task} type="text" placeholder='Add your tasks here...' className='p-2 text-lg bg-none border-2 border-purple-800 w-full' />
-        <button disabled={task.length<=3} onClick={handleAdd} className='p-2 text-ld bg-purple-800 text-white'>Save</button>
+        <button disabled={task.length<=2} onClick={handleAdd} className='p-2 text-ld bg-purple-800 text-white'>Save</button>
+        </div>
+        
+        <div className="container flex my-4 mx-auto w-3/4">
+        <p>Task should contain at least 3 characters</p>
         </div>
 
         <div className="container w-3/4 mx-auto my-10">
